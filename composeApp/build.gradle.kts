@@ -29,10 +29,9 @@ kotlin {
         }
     }
     
-    jvm("desktop")
-    
+    jvm("desktopTarget")
     sourceSets {
-        val desktopMain by getting
+        val desktopTargetMain by getting
         
         androidMain.dependencies {
             implementation(compose.preview)
@@ -48,11 +47,14 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(projects.shared)
+            
+            // KotlinX DateTime 库
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
-        desktopMain.dependencies {
+        desktopTargetMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
         }

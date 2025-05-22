@@ -18,11 +18,13 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
     
-    jvm()
+    jvm("sharedJvm")
     
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.coroutines.core) // Added kotlinx-coroutines-core dependency
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

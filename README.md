@@ -1,19 +1,50 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop, Server.
+# 听写喵 App （MVP 单机版）
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+## 1. 应用信息
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+- **应用名**：听写喵 / MewHear
+- **简介**：听写喵是一款面型小学生的中英文单词听写应用，该应用提供听写朗读，学生在练习本上听写
 
-* `/server` is for the Ktor server application.
+  - **内容**：K1-K6年级英语及语文教材，4会词汇及单词（涵盖主流地区教材）
+    - 登录后需要设置：
+      - 教材版本：人教版、北师大版、北京版、沪教版等
+      - 年级：K1-K6
+    - 内容组织：
+      - 按照英语、语文 -> 单元 -> 课程 -> 单词 的层级结构
+      - 除按年级的分类外，还有手工录入的词汇练习册、用于复习的常错词汇库等。
+  - **功能**：小学生自助听写
+    - 单课听写
+      - 课程类按单元顺序正排
+      - 手工录入的练习册按时间顺序倒排
+    - 常错词听写
+      - 常错词的听写顺序基于艾宾浩斯曲线（遗忘曲线），用户在听写完单课内容后会提示常错词进行听写。
+    - 听写记录
+      - 用户在听写完后，可以对正确的单词进行标记，生成“正确率+耗时”的简要报告。
 
-* `/shared` is for the code that will be shared between all targets in the project.
-  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
+  - **未来规划**：
+    - 基于手工录入词汇自动转音频（TTS文本转语音）
+    - 拍照识别词汇录入（OCR）
+    - 听写拍照批改，不再依赖人工标注
 
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## 2. 设计概要
+
+- 卡通角色：喵小听（Mewie），一只活泼的猫咪，戴耳机、手持笔，象征听写学习的乐趣。
+  - Slogan ：“听写喵，乐学每一天！” / “MewHear, Learn with Cheer!”
+- 可视化设计：
+  - 卡通形象：喵小听（Mewie），一只活泼的猫咪，戴耳机、手持笔，象征听写学习的乐趣。
+  - 颜色：柔和的粉色、浅蓝或奶黄色，温暖调性。
+  - 风格：日式萌系（如Hello Kitty）或简约手绘风，适合儿童或年轻用户。
+  - 表情：笑眯眯或专注听写的表情，充满亲和力。
+
+## 3. 技术选型
+- 跨端架构：Kotlin Multiplatform
+- 多端共享业务逻辑：Android、iOS、H5
+- 各端UI层选型：
+  - Android：Jetpack Compose
+  - iOS：SwiftUI
+  - H5：React
+- 后端：ktor （MVP版本不需要后端管理平台）
+- 
+
+

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "tb001",
+    "name": "人教版",
+    "grade": "K1",
+    "language": "ZH",
+    "units": [
+      {
+        "id": "u001",
+        "name": "第一单元",
+        "lessons": [
+          {
+            "id": "l001",
+            "name": "识字一",
+            "words": [
+              { "id": "w001", "text": "天", "language": "ZH" },
+              { "id": "w002", "text": "地", "language": "ZH" },
+              { "id": "w003", "text": "人", "language": "ZH" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tb002",
+    "name": "PEP小学英语",
+    "grade": "K3",
+    "language": "EN",
+    "units": [
+      {
+        "id": "u002",
+        "name": "Unit 1",
+        "lessons": [
+          {
+            "id": "l002",
+            "name": "Hello",
+            "words": [
+              { "id": "w004", "text": "apple", "language": "EN" },
+              { "id": "w005", "text": "banana", "language": "EN" },
+              { "id": "w006", "text": "cat", "language": "EN" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

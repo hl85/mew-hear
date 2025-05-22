@@ -1,44 +1,51 @@
 package org.helo.mew
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.MaterialTheme // Changed from material3 to material
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import com.mewhear.app.model.Textbook // Correct model import
+import com.mewhear.app.ui.AppViewModel
+import com.mewhear.app.ui.SelectionScreen
+import com.mewhear.app.ui.LessonSelectionScreen
+import com.mewhear.app.ui.DictationScreen
+import com.mewhear.app.ui.PostDictationReviewScreen
+import com.mewhear.app.ui.ReportScreen // New import
 
-import mew_hear.composeapp.generated.resources.Res
-import mew_hear.composeapp.generated.resources.compose_multiplatform
-
+// Preview annotation might need to be adjusted or removed if it causes issues with MaterialTheme
+// For now, keeping it.
 @Composable
-@Preview
+// @Preview // Preview might not work well with the new structure immediately, can be re-added/configured later.
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+        val appViewModel = remember { AppViewModel() }
+        var currentScreen by remember { mutableStateOf(Screen.Selection) }
+        // selectedTextbookForNav is already declared for passing to LessonSelectionScreen
+        // var selectedTextbookForNav by remember { mutableStateOf<Textbook?>(null) } // This line is in existing code, but not in prompt's new App.kt. AppViewModel holds the state.
+
+        when (currentScreen) {
+            Screen.Selection -> SelectionScreen(appViewModel) {
+                currentScreen = Screen.LessonSelection
             }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
+            Screen.LessonSelection -> LessonSelectionScreen(appViewModel) { lesson ->
+               appViewModel.startDictationForLesson(lesson)
+               currentScreen = Screen.Dictation 
+            }
+            Screen.Dictation -> DictationScreen(appViewModel) {
+               currentScreen = Screen.PostDictationReview
+            }
+            Screen.PostDictationReview -> PostDictationReviewScreen(appViewModel) {
+                currentScreen = Screen.Report 
+            }
+            Screen.Report -> ReportScreen(appViewModel) {
+                currentScreen = Screen.Selection // Navigate back to start or lesson selection
             }
         }
     }
+}
+
+enum class Screen {
+    Selection,
+    LessonSelection,
+    Dictation,
+    PostDictationReview,
+    Report // Added
 }

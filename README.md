@@ -39,11 +39,10 @@
 
 ## 3. 技术选型
 - 跨端架构：Kotlin Multiplatform
-- 多端共享业务逻辑：Android、iOS、H5
+- 多端共享业务逻辑：Android、iOS
 - 各端UI层选型：
   - Android：Jetpack Compose
   - iOS：SwiftUI
-  - H5：ReactJS
 - 后端：ktor （MVP版本不需要后端管理平台）
 - 
 

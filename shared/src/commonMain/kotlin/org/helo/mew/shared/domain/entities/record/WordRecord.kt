@@ -1,4 +1,4 @@
-package org.helo.mew.data.models.record
+package org.helo.mew.shared.data.entities.record
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
@@ -15,7 +15,7 @@ data class WordRecord(
     val isCorrect: Boolean,
     val timeSpent: Long,                 // 耗时（毫秒）
     val attempts: Int = 1,               // 尝试次数
-    val mistakeType: MistakeType? = null, // 错误类型
+    val mistakeType: org.helo.mew.shared.data.entities.record.MistakeType? = null, // 错误类型
     val recordedAt: Instant
 ) {
     init {

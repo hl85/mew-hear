@@ -1,4 +1,4 @@
-package org.helo.mew.data.models.word
+package org.helo.mew.shared.data.entities.word
 
 /**
  * 练习册类型枚举

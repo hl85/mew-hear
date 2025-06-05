@@ -1,4 +1,4 @@
-package org.helo.mew.data.models.record
+package org.helo.mew.shared.data.entities.record
 
 /**
  * 听写会话类型枚举

@@ -1,4 +1,4 @@
-package org.helo.mew.data.models.user
+package org.helo.mew.shared.data.entities.user
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable

@@ -17,6 +17,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import mew_hear.composeapp.generated.resources.Res
 import mew_hear.composeapp.generated.resources.compose_multiplatform
+import org.helo.mew.shared.Greeting
 
 @Composable
 @Preview

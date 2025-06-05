@@ -43,7 +43,6 @@
 - 各端UI层选型：
   - Android：Jetpack Compose
   - iOS：SwiftUI
-- 后端：ktor （MVP版本不需要后端管理平台）
-- 
+
 
 

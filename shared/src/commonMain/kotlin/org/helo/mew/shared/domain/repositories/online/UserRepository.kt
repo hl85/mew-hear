@@ -1,4 +1,4 @@
-package org.helo.mew.shared.domain.repositories
+package org.helo.mew.shared.domain.repositories.online
 
 import org.helo.mew.shared.domain.entities.user.User
 import org.helo.mew.shared.domain.entities.user.UserSettings

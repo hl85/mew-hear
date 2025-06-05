@@ -1,4 +1,4 @@
-package org.helo.mew
+package org.helo.mew.shared
 
 const val SERVER_PORT = 8080
 const val Server_HOST = "localhost"

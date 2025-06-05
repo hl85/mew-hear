@@ -1,4 +1,4 @@
-package org.helo.mew
+package org.helo.mew.shared
 
 import platform.UIKit.UIDevice
 

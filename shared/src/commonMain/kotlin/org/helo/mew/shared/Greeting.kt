@@ -1,4 +1,4 @@
-package org.helo.mew
+package org.helo.mew.shared
 
 class Greeting {
     private val platform = getPlatform()

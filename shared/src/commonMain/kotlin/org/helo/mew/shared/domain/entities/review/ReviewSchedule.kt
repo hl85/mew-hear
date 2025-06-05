@@ -1,4 +1,4 @@
-package org.helo.mew.shared.data.entities.review
+package org.helo.mew.shared.domain.entities.review
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.Clock

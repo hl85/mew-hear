@@ -1,4 +1,4 @@
-package org.helo.mew
+package org.helo.mew.shared
 
 import io.ktor.server.engine.ApplicationEngine
 

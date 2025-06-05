@@ -1,8 +1,8 @@
-package org.helo.mew.shared.data.entities.user
+package org.helo.mew.shared.domain.entities.user
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
-import org.helo.mew.shared.data.entities.word.Grade
+import org.helo.mew.shared.domain.entities.word.Grade
 
 
 /**

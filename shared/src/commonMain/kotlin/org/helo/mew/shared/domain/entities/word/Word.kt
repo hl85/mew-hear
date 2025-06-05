@@ -1,4 +1,4 @@
-package org.helo.mew.shared.data.entities.word
+package org.helo.mew.shared.domain.entities.word
 
 import kotlinx.datetime.Instant
 

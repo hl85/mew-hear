@@ -1,4 +1,4 @@
-package org.helo.mew.shared.domain.repositories
+package org.helo.mew.shared.domain.repositories.online
 
 /**
  * 教材仓库接口
